@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   
   const onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
   }
   
   return (
@@ -21,9 +17,7 @@ export const SignUp = () => {
             name="email"
             id="email"
             data-testid="input-email"
-            value={email}
-            placeholder="me@example.com"
-            onChange={(e) => setEmail(e.currentTarget.value)}/>
+            placeholder="me@example.com" />
         </div>
         <div className="field">
           <label htmlFor="password">Password</label>
@@ -32,20 +26,17 @@ export const SignUp = () => {
             name="password"
             id="password"
             data-testid="input-password"
-            value={password}
-            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-            onChange={(e) => setPassword(e.currentTarget.value)}/>
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" />
         </div>
         <div className="field">
-          <label htmlFor="confirmPassword">ConfirmPassword</label>
+          <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             type="password"
             name="confirmPassword"
             id="confirmPassword"
             data-testid="input-confirmPassword"
-            value={confirmPassword}
             placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-            onChange={(e) => setConfirmPassword(e.currentTarget.value)}/>
+          />
         </div>
         <div className="field">
           <button type="submit" className="btn">Submit</button>

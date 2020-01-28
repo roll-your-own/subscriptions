@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import { SignUp } from './SignUp';
 
 const setup = (props={}) => {
@@ -20,4 +20,20 @@ describe('sign up form', () => {
     expect(queryByTestId('input-password').value).toBe("");
     expect(queryByTestId('input-confirmPassword').value).toBe("");
   });
+  
+  test('state updates when user changes input', () => {
+    const { queryByTestId } = setup();
+    fireEvent.change(queryByTestId('input-email'), { target: { value: 'foo' } });
+    expect(queryByTestId('input-email').value).toBe("foo");
+    
+    fireEvent.change(queryByTestId('input-password'), { target: { value: 'bar' } });
+    expect(queryByTestId('input-password').value).toBe("bar");
+    
+    fireEvent.change(queryByTestId('input-confirmPassword'), { target: { value: 'baz' } });
+    expect(queryByTestId('input-confirmPassword').value).toBe("baz");
+  });
+  
+  test('it validates the inputs on change', () => {
+    
+  })
 });
