@@ -15,7 +15,9 @@ it('renders without error', () => {
 
 describe('sign up form', () => {
   test('loads with inital state', () => {
-    
+    const { queryByTestId } = setup();
+    expect(queryByTestId('input-email').value).toBe("");
+    expect(queryByTestId('input-password').value).toBe("");
+    expect(queryByTestId('input-confirmPassword').value).toBe("");
   });
-  
 });

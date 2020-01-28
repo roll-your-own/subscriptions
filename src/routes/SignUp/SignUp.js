@@ -20,6 +20,7 @@ export const SignUp = () => {
             type="email"
             name="email"
             id="email"
+            data-testid="input-email"
             value={email}
             placeholder="me@example.com"
             onChange={(e) => setEmail(e.currentTarget.value)}/>
@@ -30,6 +31,7 @@ export const SignUp = () => {
             type="password"
             name="password"
             id="password"
+            data-testid="input-password"
             value={password}
             placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
             onChange={(e) => setPassword(e.currentTarget.value)}/>
@@ -40,6 +42,7 @@ export const SignUp = () => {
             type="password"
             name="confirmPassword"
             id="confirmPassword"
+            data-testid="input-confirmPassword"
             value={confirmPassword}
             placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
             onChange={(e) => setConfirmPassword(e.currentTarget.value)}/>
