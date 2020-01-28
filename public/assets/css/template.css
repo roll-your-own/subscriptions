@@ -1,5 +1,5 @@
 .app { max-width: 1024px; margin: 0 auto; }
-.header { font-size: 1rem; }
+.header { font-size: 1rem; margin-bottom: 1rem; }
 .header a { display: block; padding: 1rem 20px; }
 .logo { font-size: 1rem; padding: 0; }
 .nav-primary { display: flex; justify-content: space-between; }

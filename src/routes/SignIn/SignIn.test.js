@@ -1,15 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { findByTestAttr } from '../../../tests/testUtils';
+import { render, cleanup } from '@testing-library/react';
 import { SignIn } from './SignIn';
 
 const setup = (props={}) => {
   const setupProps = {...props}
-  return shallow(<SignIn {...props} />);
+  return render(<SignIn {...props} />);
 }
 
+beforeEach(cleanup);
+
 it('renders without error', () => {
-  const wrapper = setup();
-  const component = findByTestAttr(wrapper, 'route-signin');
-  expect(component.length).toBe(1);
+  const { queryByTestId } = setup();
+  expect(queryByTestId('route-signin')).toBeTruthy();
 });

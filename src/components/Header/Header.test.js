@@ -1,54 +1,49 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, cleanup } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import { findByTestAttr } from '../../../tests/testUtils';
 import { Header } from './Header';
 
 const setup = (props={}) => {
   const setupProps = {...props}
   const history = createMemoryHistory();
-  return mount(
+  return render(
     <Router history={history}>
       <Header {...props} />
     </Router>
   );
 }
 
+beforeEach(cleanup);
+
 it('renders without error', () => {
-  const wrapper = setup();
-  const component = findByTestAttr(wrapper, 'comp-header');
-  expect(component.length).toBe(1);
+  const { queryByTestId } = setup();
+  expect(queryByTestId('comp-header')).toBeTruthy();
 });
 
 it('renders the logo link', () => {
-  const wrapper = setup();
-  const component = findByTestAttr(wrapper, 'link-logo').first();
-  expect(component.length).toBe(1);
+  const { queryByTestId } = setup();
+  expect(queryByTestId('link-logo')).toBeTruthy();
 })
 
 describe('logged out navigation', () => {
   it('renders the home link', () => {
-    const wrapper = setup();
-    const component = findByTestAttr(wrapper, 'link-home').first();
-    expect(component.length).toBe(1);
+    const { queryByTestId } = setup();
+    expect(queryByTestId('link-home')).toBeTruthy();
   })
 
   it('renders the about link', () => {
-    const wrapper = setup();
-    const component = findByTestAttr(wrapper, 'link-about').first();
-    expect(component.length).toBe(1);
+    const { queryByTestId } = setup();
+    expect(queryByTestId('link-about')).toBeTruthy();
   })
 
   it('renders the signup link', () => {
-    const wrapper = setup();
-    const component = findByTestAttr(wrapper, 'link-signup').first();
-    expect(component.length).toBe(1);
+    const { queryByTestId } = setup();
+    expect(queryByTestId('link-signup')).toBeTruthy();
   })
 
   it('renders the signin link', () => {
-    const wrapper = setup();
-    const component = findByTestAttr(wrapper, 'link-signin').first();
-    expect(component.length).toBe(1);
+    const { queryByTestId } = setup();
+    expect(queryByTestId('link-signin')).toBeTruthy();
   })
 })
