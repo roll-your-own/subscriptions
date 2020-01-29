@@ -4,7 +4,9 @@ export const ROUTES = {
   SIGN_UP: '/signup',
   SIGN_IN: '/signin',
   FORGOT_PASSWORD: '/forgotpassword',
-  NOMATCH: "*",
+  NO_MATCH: "*",
   DASHBOARD: '/dashboard',
   ACCOUNT: '/account',
+  ADMIN: "/admin",
+  NOT_ALLOWED: "/notallowed",
 }

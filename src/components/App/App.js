@@ -24,7 +24,7 @@ export const App = () => {
           <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
           <Route exact path={ROUTES.ACCOUNT} component={Account} />
           <Route exact path={ROUTES.NOT_ALLOWED} component={NotAllowed} />
-          <Route path={ROUTES.NOMATCH} component={NoMatch} />
+          <Route path={ROUTES.NO_MATCH} component={NoMatch} />
         </Switch>
       </div>
     </AuthUserContext.Provider>

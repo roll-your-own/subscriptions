@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, Redirect } from 'react-router-dom';
 import { auth } from '../../firebase';
+import { useAuthUserContext } from '../Session';
 import { ROUTES } from '../../constants';
 import { Message } from '../UI';
 import { GoogleSignInBtn } from './GoogleSignInBtn';
 
 export const SignIn = () => {
+  
+  const { authUser } = useAuthUserContext();
   
   let history = useHistory();
   const [email, setEmail] = useState("");
@@ -20,7 +23,11 @@ export const SignIn = () => {
     })
     .catch(error => setMessage(error.message))
   }
-
+  
+  if ( authUser ) {
+    return <Redirect to={ROUTES.DASHBOARD} />
+  }
+  
   return (
     <div className="form-card" data-testid="page-signin">
       <h2>Sign In</h2>

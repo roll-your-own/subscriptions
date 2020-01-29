@@ -15,7 +15,7 @@ const withPermission = (condition) => (Component) => {
         if (!authUser) {
           history.push(ROUTES.SIGN_IN)
         } else if (!condition(authUser)) {
-          history.push(ROUTES.NOT_ALLOWED)
+          history.push(ROUTES.NO_MATCH)
         }
       }
     }, [loading, authUser, dbUser, history])
