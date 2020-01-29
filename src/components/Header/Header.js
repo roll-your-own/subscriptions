@@ -15,7 +15,6 @@ const HeaderAuth = ({ dbUser }) => (
         ? <Link to={ROUTES.ADMIN}>Admin</Link>
         : null
       }
-      
       <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
       <Link to={ROUTES.ACCOUNT}>Account</Link>
       <button onClick={auth.signOut}>Sign Out</button>
