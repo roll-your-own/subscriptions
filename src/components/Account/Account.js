@@ -5,7 +5,7 @@ import { Avatar } from '../UI';
 import { EditUser } from './EditUser';
 
 const Account = ({ authUser, dbUser }) => (
-  <div className="ui-account" data-testid="account">
+  <div className="ui-account" data-testid="route-account">
     <div className="ui-account-header">
       <Avatar user={dbUser} wrapperClass={"ui-account-avatar"} />
       <h2 className="ui-account-display-name" data-testid="displayname">{dbUser.displayName}</h2>

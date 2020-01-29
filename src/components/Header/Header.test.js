@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, wait, fireEvent, cleanup } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import { MemoryRouter as Router } from "react-router-dom";
 import { Header } from './Header';
 import { useAuthUserContext } from '../Session';
