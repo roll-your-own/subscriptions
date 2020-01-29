@@ -106,8 +106,8 @@
   left: 0;
   background: #fffffff7;
   display: none;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .ui-modal.open { display: flex; }
-.ui-modal-inner { border: 1px solid #ccc; border-radius: 3px;  padding: 1rem 20px; }
+.ui-modal-inner { max-width: 550px; border: 1px solid #ccc; border-radius: 3px;  padding: 1rem 20px; }
