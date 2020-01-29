@@ -80,7 +80,6 @@ input[type="number"] {
   border-bottom: 2px solid #ccc;
   font-size: 1rem;
   outline: none;
-  border-radius: 3px;
   transition: border-color 0.2s ease;
 }
 /* hover */
@@ -112,12 +111,12 @@ input[type="number"].input-error { border-bottom: 2px solid #d86a6a; }
 
 /* Label
 ------------------------------------ */
-label { font-size: 0.8rem; font-weight: 600; color: #9e9e9e; }
+label { font-size: 0.9rem; font-weight: 600; color: #5f5f5f; }
 label i { color: #d86a6a; padding-left: 0.1rem; }
 
 /* Form Utils
 ------------------------------------ */
-.form-card { max-width: 400px; margin: 0 auto; }
+.form-card { max-width: 500px; margin: 2rem auto; }
 .fieldrow { display: flex; justify-content: space-between; }
 .fieldrow .field { flex-grow: 1; flex-basis: 0; }
 .form-lang-value { border-bottom: 1px solid #ccc; }
@@ -127,3 +126,16 @@ label i { color: #d86a6a; padding-left: 0.1rem; }
 ------------------------------------ */
 .text-center { text-align: center; }
 .text-muted { color: #a5a2a2; }
+.hr-text { position: relative; text-align: center; }
+.hr-text:before {
+  content: '';
+  position: absolute;
+  top: 52%;
+  left: 20px;
+  right: 20px;
+  display: block;
+  
+  border-bottom: 1px solid #ccc;
+  
+}
+.hr-text span { position: relative; background: #fff; padding: 10px; }

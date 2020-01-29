@@ -1,12 +1,113 @@
-.app { max-width: 1024px; margin: 0 auto; }
-.header { font-size: 1rem; margin-bottom: 1rem; }
-.header a { display: block; padding: 1rem 20px; }
-.logo { font-size: 1rem; padding: 0; }
-.nav-primary { display: flex; justify-content: space-between; }
+/* App
+------------------------------------ */
+.app { max-width: 1920px; margin: 0 auto; }
+.container { max-width: 1024px; margin: 0 auto; }
 
+/* Header
+------------------------------------ */
+.header { font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #ccc; }
+.header a,
+.header button { display: block; padding: 1rem 20px; }
+.logo { font-size: 1rem; padding: 0; letter-spacing: 0.15rem; }
+.logo a { color: #444; }
+.logo a:hover { color: #868686; }
+.nav-primary { display: flex; justify-content: space-between; }
 @media (min-width: 550px) {
-  .header {
-    display: flex;
-    justify-content: space-between;
+  .header { display: flex; justify-content: space-between; }
+}
+
+/* Account
+------------------------------------ */
+.ui-account { max-width: 600px; margin: 0 auto; }
+.ui-account .ui-account-header { text-align: center; }
+.ui-account .ui-account-avatar { padding-bottom: 0; }
+.ui-account .ui-account-display-name { padding-bottom: 0; }
+.ui-account .ui-account-email { padding-top: 0; }
+
+/* Message
+------------------------------------ */
+.message.message-error { color: #da6868; }
+
+/* Loader
+------------------------------------ */
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader .loader-message { margin-bottom: 1rem; max-width: 600px; text-align: center; }
+.loader .loader-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  font-size: 48px;
+  color: #444;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
+
+/* Avatar
+------------------------------------ */
+.avatar-wrapper { display: flex; align-items: center; justify-content: center; }
+.avatar-wrapper.avatar-inline { padding-right: 0; }
+.avatar {
+  border-radius: 100%;
+  max-width: 50px;
+}
+.avatar-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  margin: 0 auto;
+  background: #847885;
+  border-radius: 100%;
+  font-size: 21px;
+  font-weight: 700;
+  color: #fff;
+}
+.avatar-small .avatar,
+.avatar-small .avatar-text {
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 600px) {
+  .avatar { max-width: 100px; }
+  .avatar-small .avatar,
+  .avatar-small .avatar-text {
+    width: 50px;
+    height: 50px;
+    font-size: 21px;
   }
 }
+
+/* Modal
+------------------------------------ */
+.ui-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fffffff7;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+.ui-modal.open { display: flex; }
+.ui-modal-inner { border: 1px solid #ccc; border-radius: 3px;  padding: 1rem 20px; }

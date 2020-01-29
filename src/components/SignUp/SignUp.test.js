@@ -32,8 +32,4 @@ describe('sign up form', () => {
     fireEvent.change(queryByTestId('input-confirmPassword'), { target: { value: 'baz' } });
     expect(queryByTestId('input-confirmPassword').value).toBe("baz");
   });
-  
-  test('it validates the inputs on change', () => {
-    
-  })
 });
