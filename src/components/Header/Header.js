@@ -37,10 +37,10 @@ const HeaderNonAuth = () => (
 );
 
 export const Header = () => {
-  const { authUser, dbUser, loading } = useAuthUserContext();
+  const { authUser, dbUser } = useAuthUserContext();
   return (
     <>
-      {authUser ? <HeaderAuth authUser={authUser} dbUser={dbUser} loading={loading} /> : <HeaderNonAuth />}
+      {authUser ? <HeaderAuth authUser={authUser} dbUser={dbUser} /> : <HeaderNonAuth />}
     </>
   )
 }
