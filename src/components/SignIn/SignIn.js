@@ -29,7 +29,7 @@ export const SignIn = () => {
   }
   
   return (
-    <div className="form-card" data-testid="page-signin">
+    <div className="form-card" data-testid="route-signin">
       <h2>Sign In</h2>
       <p><GoogleSignInBtn as="SIGN_IN" /></p>
       <p className="hr-text"><span>or</span></p>
