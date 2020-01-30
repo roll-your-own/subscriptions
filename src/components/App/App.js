@@ -23,7 +23,7 @@ export const App = () => {
           <Route exact path={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
           <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
           <Route exact path={ROUTES.ACCOUNT} component={Account} />
-          <Route exact path={ROUTES.ADMIN} component={Admin} />
+          <Route path={ROUTES.ADMIN} component={Admin} />
           <Route exact path={ROUTES.NOT_ALLOWED} component={NotAllowed} />
           <Route path={ROUTES.NO_MATCH} component={NoMatch} />
         </Switch>

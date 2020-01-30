@@ -7,6 +7,7 @@ export const ROUTES = {
   NO_MATCH: "*",
   DASHBOARD: '/dashboard',
   ACCOUNT: '/account',
-  ADMIN: "/admin",
+  ADMIN: '/admin',
+  ADMIN_PLANS: '/admin/plans',
   NOT_ALLOWED: "/notallowed",
 }

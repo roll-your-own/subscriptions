@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import { withPermission } from "../Session";
 import { ROUTES } from '../../constants';
+import { AdminHome, AdminPlans } from './';
 
 const Admin = ({ authUser, dbUser }) => {
   return (
@@ -9,13 +10,14 @@ const Admin = ({ authUser, dbUser }) => {
       <h2>Admin</h2>
       <div className="admin-controls">
         <nav className="nav-admin">
-          <Link to={ROUTES.ADMIN}>Admin</Link>
-          <Link to={ROUTES.ADMIN}>Plans</Link>
-          <Link to={ROUTES.ADMIN}>Subscribers</Link>
-          <Link to={ROUTES.ADMIN}>Coupons</Link>
+          <Link to={ROUTES.ADMIN} data-testid="link-admin-home">Home</Link>
+          <Link to={ROUTES.ADMIN_PLANS} data-testid="link-admin-plans">Plans</Link>
         </nav>
         <div className="admin-controls-main">
-          <h3>Admin</h3>
+          <Switch>
+            <Route exact path={ROUTES.ADMIN} component={AdminHome} />
+            <Route exact path={ROUTES.ADMIN_PLANS} component={AdminPlans} />
+          </Switch>
         </div>
       </div>
     </div>
