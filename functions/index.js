@@ -14,12 +14,8 @@ exports.events = functions.https.onRequest((request, response) => {
   try {
     let event = stripe.webhooks.constructEvent(request.rawBody, signature, endpointSecret);
     return admin.firestore().collection('events').add(event)
-      .then((docRef) => {
-        return response.json({ received: true, ref: docRef.id });
-      })
-      .catch((error) => {
-        return response.status(500).end();
-      });
+      .then((docRef) => { return response.json({ received: true, ref: docRef.id }) })
+      .catch((error) => { return response.status(500).end() });
   }
   catch (error) {
     return response.status(400).end();
@@ -33,7 +29,6 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError('failed-precondition', 'The function must be called while authenticated.');
   }
-  const user = await getUser(data.uid);
   const stripePlan = await stripe.plans
     .create({
       amount: data.amount,
@@ -41,10 +36,8 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
       interval: data.interval,
       product: { name: data.name },
     })
-    .catch(error => {
-      throw new functions.https.HttpsError('error', error);
-    })
-  return admin.firestore().collection('users').doc(data.uid).collection('plans').doc(stripePlan.id)
+    .catch(error => { throw new functions.https.HttpsError('error', error) });
+  return admin.firestore().collection('plans').doc(stripePlan.id)
     .set({
       name: data.name,
       amount: data.amount,
@@ -54,9 +47,7 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
       stripeProductID: stripePlan.product,
     })
     .then((docRef) => { return { id: docRef.id } })
-    .catch(error => {
-      throw new functions.https.HttpsError('error', error);
-    });
+    .catch(error => { throw new functions.https.HttpsError('error', error) });
 });
 // [END createStripePlan]
 
@@ -66,16 +57,13 @@ exports.editStripePlan = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError('failed-precondition', 'The function must be called while authenticated.');
   }
-  const user = await getUser(data.uid);
   const stripePlan = await stripe.plans
     .update({
       amount: data.amount,
       product: { name: data.name },
     })
-    .catch(error => {
-      throw new functions.https.HttpsError('error', error);
-    })
-  return admin.firestore().collection('users').doc(data.uid).collection('plans').doc(stripePlan.id)
+    .catch(error => { throw new functions.https.HttpsError('error', error) });
+  return admin.firestore().collection('plans').doc(stripePlan.id)
     .set({
       name: data.name,
       amount: data.amount,
@@ -85,9 +73,7 @@ exports.editStripePlan = functions.https.onCall(async (data, context) => {
       stripeProductID: stripePlan.product,
     })
     .then((docRef) => { return { id: docRef.id } })
-    .catch(error => {
-      throw new functions.https.HttpsError('error', error);
-    });
+    .catch(error => { throw new functions.https.HttpsError('error', error) });
 });
 // [END editStripePlan]
 
@@ -97,26 +83,17 @@ exports.deleteStripePlan = functions.https.onCall(async (data, context) => {
   if (!context.auth) {
     throw new functions.https.HttpsError('failed-precondition', 'The function must be called while authenticated.');
   }
-  const user = await getUser(data.uid);
   // delete the plan
   const stripePlan = await stripe.plans
     .del(data.planID, { stripeAccount: user.stripeConnectAccountID })
-    .catch(error => {
-      console.log(error);
-      throw new functions.https.HttpsError('error', error);
-    })
+    .catch(error => {throw new functions.https.HttpsError('error', error) });
   // delete the associated product
   await stripe.products
     .del(data.productID, { stripeAccount: user.stripeConnectAccountID })
-    .catch(error => {
-      console.log(error);
-      throw new functions.https.HttpsError('error', error);
-    })
-  return admin.firestore().collection('users').doc(data.uid).collection('plans').doc(stripePlan.id)
+    .catch(error => { throw new functions.https.HttpsError('error', error) });
+  return admin.firestore().collection('plans').doc(stripePlan.id)
     .delete()
-    .catch(error => {
-      throw new functions.https.HttpsError('error', error);
-    });
+    .catch(error => { throw new functions.https.HttpsError('error', error) });
 });
 // [END deleteStripePlan]
 

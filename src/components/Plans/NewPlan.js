@@ -23,7 +23,7 @@ export const NewPlan = ({ dbUser }) => {
       setLoading(true);
       setMessage(null);
       const convAmount = currencyToCents(amount);
-      functions.createPlan(dbUser.uid, name, convAmount, currency, interval.value)
+      functions.createPlan(name, convAmount, currency, interval.value)
         .then(response => history.push(ROUTES.PLANS))
         .catch(error => {
           setMessage({ type: "error", message: "Something went wrong. Please try again." });
