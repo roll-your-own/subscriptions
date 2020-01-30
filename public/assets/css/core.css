@@ -9,7 +9,7 @@
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
-html, input, textarea, button {
+html, input, textarea, button, select {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
   color: #424242;
@@ -20,7 +20,7 @@ img  { width: 100% }
 svg  { max-height: 100% }
 
 @media screen and (min-width: 600px) {
-  html, input, textarea, button { font-size: 16px; }
+  html, input, textarea, button, select { font-size: 16px; }
 }
 
 /* Base
@@ -72,15 +72,36 @@ input { -webkit-appearance: none; }
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="number"] {
+input[type="number"],
+select {
   width: 100%;
   padding: 1rem 0;
   background: #fff;
   border: 1px solid #fff;
   border-bottom: 2px solid #ccc;
+  border-radius: 0;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 5px;
+  display: block;
+  height: 10px;
+  width: 10px;
+  margin-top: -8px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  transform: rotate(45deg);
 }
 /* hover */
 input[type="text"]:hover,

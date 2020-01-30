@@ -8,6 +8,8 @@ export const ROUTES = {
   DASHBOARD: '/dashboard',
   ACCOUNT: '/account',
   ADMIN: '/admin',
-  ADMIN_PLANS: '/admin/plans',
+  PLANS: '/admin/plans',
+  PLAN: '/admin/plans/:id',
+  NEW_PLAN: '/admin/plans/new',
   NOT_ALLOWED: "/notallowed",
 }
