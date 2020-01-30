@@ -14,15 +14,19 @@ const withPermission = (condition) => (Component) => {
       if (!loading) {
         if (!authUser) {
           history.push(ROUTES.SIGN_IN)
-        } else if (!condition(authUser)) {
+        } else if (!condition(authUser, dbUser)) {
           history.push(ROUTES.NO_MATCH)
         }
       }
     }, [loading, authUser, dbUser, history])
     
+    if ( loading ) {
+      return <Loader />
+    }
+    
     return (
       <>
-        {(authUser && dbUser) ? <Component {...props} authUser={authUser} dbUser={dbUser} /> : <Loader /> }
+        {(authUser && dbUser) ? <Component {...props} authUser={authUser} dbUser={dbUser} /> : null }
       </>
     )
   }

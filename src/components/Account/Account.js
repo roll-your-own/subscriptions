@@ -8,7 +8,7 @@ const Account = ({ authUser, dbUser }) => (
   <div className="ui-account" data-testid="route-account">
     <div className="ui-account-header">
       <Avatar user={dbUser} wrapperClass={"ui-account-avatar"} />
-      <h2 className="ui-account-display-name" data-testid="displayname">{dbUser.displayName}</h2>
+      <h2 className="ui-account-display-name" data-testid="displayname">{dbUser.displayName}{dbUser.admin ? " [ADMIN]" : ""}</h2>
       <p className="ui-account-email" data-testid="email">{authUser.email}</p>
     </div>
     <EditUser authUser={authUser} dbUser={dbUser} />

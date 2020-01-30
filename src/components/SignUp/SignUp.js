@@ -13,7 +13,7 @@ export const SignUp = () => {
   const [message, setMessage] = useState("");
   
   const createDbUser = (displayName, email, photoURL, uid) => {
-    db.createUser(displayName, email, photoURL, uid)
+    db.createUser(displayName="", email, photoURL, uid)
     .then(() => history.push(ROUTES.DASHBOARD))
     .catch(error => setMessage(error.message))
   }

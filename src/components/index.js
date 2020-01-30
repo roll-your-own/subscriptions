@@ -1,5 +1,6 @@
 import { About } from './About';
 import { Account } from './Account';
+import { Admin } from './Admin';
 import { App } from './App';
 import { Dashboard } from './Dashboard';
 import { ForgotPassword } from './ForgotPassword';
@@ -13,6 +14,7 @@ import { SignUp } from './SignUp';
 export {
   About,
   Account,
+  Admin,
   App,
   Dashboard,
   ForgotPassword,

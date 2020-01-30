@@ -8,10 +8,12 @@ export const useAuthState = () => {
   const [loading, setLoading] = useState(!authUser);
   
   useEffect(() => {
-    setLoading(true);
     const unsubscribe = firebase.auth.onAuthStateChanged(authUser => {
       setAuthUser(authUser);
-      setLoading(false);
+      if (!authUser) {
+        setDbUser(null);
+        setLoading(false);
+      }
     })
     return () => unsubscribe()
   }, [authUser]);

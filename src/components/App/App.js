@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthUserContext, useAuthState } from '../Session';
 import { ROUTES } from '../../constants';
-import { Header, Home, About, SignUp, SignIn, ForgotPassword, NoMatch, NotAllowed, Dashboard, Account } from '../';
+import { Header, Home, About, SignUp, SignIn, ForgotPassword, NoMatch, NotAllowed, Dashboard, Account, Admin } from '../';
 import { Loader } from '../UI';
 
 export const App = () => {
@@ -23,6 +23,7 @@ export const App = () => {
           <Route exact path={ROUTES.FORGOT_PASSWORD} component={ForgotPassword} />
           <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
           <Route exact path={ROUTES.ACCOUNT} component={Account} />
+          <Route exact path={ROUTES.ADMIN} component={Admin} />
           <Route exact path={ROUTES.NOT_ALLOWED} component={NotAllowed} />
           <Route path={ROUTES.NO_MATCH} component={NoMatch} />
         </Switch>

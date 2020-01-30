@@ -1,7 +1,5 @@
-import React from 'react';
+import Admin from './Admin';
 
-export const Admin = ({ authUser, dbUser }) => {
-  return (
-    <h2>Admin</h2>
-  )
+export {
+  Admin,
 }
