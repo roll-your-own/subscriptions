@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase';
 
-export const usePlans = (uid) => {
+export const usePlans = () => {
   const [plans, setPlans] = useState({});
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState(null);
   
   useEffect(() => {
-    db.plans(uid)
+    db.plans()
       .get()
       .then(snapshot => {
         const allPlans = snapshot.docs.map(plan => ({
@@ -21,7 +21,7 @@ export const usePlans = (uid) => {
         setMessage({type: 'error', message: error.message});
         setLoading(false);
       })
-  }, [uid]);
+  }, []);
   return { loading, message, plans }
 }
 
@@ -31,7 +31,7 @@ export const usePlan = (uid, planID) => {
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    db.plan(uid, planID)
+    db.plan(planID)
       .get()
       .then((snapshot) => {
         setPlan(snapshot.data());
@@ -41,6 +41,6 @@ export const usePlan = (uid, planID) => {
         setMessage({type: 'error', message: error.message})
         setLoading(false);
       })
-  }, [uid, planID])
+  }, [planID])
   return { loading, message, plan }
 }

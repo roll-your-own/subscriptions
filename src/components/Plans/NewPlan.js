@@ -12,8 +12,8 @@ export const NewPlan = ({ dbUser }) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("USD");
-  const [intervalCount, setIntervalCount] = useState("");
-  const [interval, setInterval] = useState("");
+  const [intervalCount, setIntervalCount] = useState("1");
+  const [interval, setInterval] = useState("month");
   
   const onSubmit = e => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export const NewPlan = ({ dbUser }) => {
       setLoading(true);
       setMessage(null);
       const convAmount = currencyToCents(amount);
-      functions.createPlan(name, convAmount, currency, interval.value)
+      functions.createPlan(name, convAmount, currency, intervalCount, interval)
         .then(response => history.push(ROUTES.PLANS))
         .catch(error => {
           setMessage({ type: "error", message: "Something went wrong. Please try again." });

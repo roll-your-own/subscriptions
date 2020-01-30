@@ -39,8 +39,8 @@ export const concludeConnect = ( uid, code ) =>
 
 // Plans API
 // ----------------------------------
-export const plans = (uid) =>
-  user(uid).collection('plans')
+export const plans = () =>
+  db.collection('plans')
 
 export const plan = (uid, planID) =>
-  plans(uid).doc(planID)
+  db.collection('plans').doc(planID)

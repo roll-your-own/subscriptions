@@ -33,15 +33,19 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
     .create({
       amount: data.amount,
       currency: data.currency,
+      intervalCount: data.intervalCount,
       interval: data.interval,
       product: { name: data.name },
     })
-    .catch(error => { throw new functions.https.HttpsError('error', error) });
+    .catch(error => {
+      console.log(error);
+      throw new functions.https.HttpsError('error', error) });
   return admin.firestore().collection('plans').doc(stripePlan.id)
     .set({
       name: data.name,
       amount: data.amount,
       currency: data.currency,
+      intervalCount: data.intervalCount,
       interval: data.interval,
       stripePlanID: stripePlan.id,
       stripeProductID: stripePlan.product,
