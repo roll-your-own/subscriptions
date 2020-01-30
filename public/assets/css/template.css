@@ -24,6 +24,17 @@
 .ui-account .ui-account-display-name { padding-bottom: 0; }
 .ui-account .ui-account-email { padding-top: 0; }
 
+/* Admin
+------------------------------------ */
+.route-admin { max-width: 1024px; margin: 0 auto; }
+.admin-controls { display: flex; }
+.nav-admin {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 0.5rem 0;
+}
+.nav-admin a { display: block; padding: 0.5rem 20px; }
 /* Message
 ------------------------------------ */
 .message.message-error { color: #da6868; }
