@@ -33,7 +33,7 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
     .create({
       amount: data.amount,
       currency: data.currency,
-      intervalCount: data.intervalCount,
+      interval_count: data.intervalCount,
       interval: data.interval,
       product: { name: data.name },
     })
@@ -89,11 +89,11 @@ exports.deleteStripePlan = functions.https.onCall(async (data, context) => {
   }
   // delete the plan
   const stripePlan = await stripe.plans
-    .del(data.planID, { stripeAccount: user.stripeConnectAccountID })
+    .del(data.planID)
     .catch(error => {throw new functions.https.HttpsError('error', error) });
   // delete the associated product
   await stripe.products
-    .del(data.productID, { stripeAccount: user.stripeConnectAccountID })
+    .del(data.productID)
     .catch(error => { throw new functions.https.HttpsError('error', error) });
   return admin.firestore().collection('plans').doc(stripePlan.id)
     .delete()

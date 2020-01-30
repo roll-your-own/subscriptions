@@ -42,5 +42,5 @@ export const concludeConnect = ( uid, code ) =>
 export const plans = () =>
   db.collection('plans')
 
-export const plan = (uid, planID) =>
-  db.collection('plans').doc(planID)
+export const plan = (id) =>
+  db.collection('plans').doc(id)

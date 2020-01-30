@@ -147,6 +147,7 @@ label i { color: #d86a6a; padding-left: 0.1rem; }
 ------------------------------------ */
 .text-center { text-align: center; }
 .text-muted { color: #a5a2a2; }
+.text-error { color: #d86a6a; }
 .hr-text { position: relative; text-align: center; }
 .hr-text:before {
   content: '';

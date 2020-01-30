@@ -22,3 +22,11 @@ export const processAmountInput = (amount) => {
   let newAmount = "$" + amount.split('').filter(char => allowed.includes(char)).join('');
   return newAmount;
 }
+
+export const intervalLang = (n) => {
+  return n === "1"
+    ? "once"
+    : n === 2
+    ? "twice"
+    : `${n} times`
+}

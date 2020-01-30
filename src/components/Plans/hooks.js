@@ -25,13 +25,13 @@ export const usePlans = () => {
   return { loading, message, plans }
 }
 
-export const usePlan = (uid, planID) => {
+export const usePlan = (id) => {
   const [plan, setPlan] = useState({});
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    db.plan(planID)
+    db.plan(id)
       .get()
       .then((snapshot) => {
         setPlan(snapshot.data());
@@ -41,6 +41,6 @@ export const usePlan = (uid, planID) => {
         setMessage({type: 'error', message: error.message})
         setLoading(false);
       })
-  }, [planID])
+  }, [id])
   return { loading, message, plan }
 }
