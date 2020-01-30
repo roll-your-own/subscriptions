@@ -26,7 +26,6 @@
 
 /* Admin
 ------------------------------------ */
-.route-admin { max-width: 1024px; margin: 0 auto; }
 .admin-controls { display: flex; }
 .nav-admin {
   display: flex;
@@ -35,6 +34,8 @@
   padding: 0.5rem 0;
 }
 .nav-admin a { display: block; padding: 0.5rem 20px; }
+.admin-controls { width: 75%; }
+
 /* Message
 ------------------------------------ */
 .message.message-error { color: #da6868; }
