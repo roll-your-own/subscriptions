@@ -34,7 +34,7 @@ hr { border:none; border-bottom: 1px solid #dcdcdc; margin: 1rem 20px; }
 ------------------------------------ */
 
 a,button { color: #868686; text-decoration: none; transition: color 0.2s ease; cursor: pointer; }
-a:hover,button:hover { color: #444; }
+a:hover,button:hover,a.active { color: #444; }
 
 /* Lists
 ------------------------------------ */

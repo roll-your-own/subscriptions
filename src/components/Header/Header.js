@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuthUserContext } from '../Session';
 import { auth } from '../../firebase';
 import { ROUTES } from '../../constants';
@@ -12,11 +12,11 @@ const HeaderAuth = ({ dbUser }) => (
     </h1>
     <nav className="nav-primary">
       {!!dbUser && dbUser.admin === true
-        ? <Link to={ROUTES.ADMIN}>Admin</Link>
+        ? <NavLink to={ROUTES.ADMIN}>Admin</NavLink>
         : null
       }
-      <Link to={ROUTES.DASHBOARD}>Dashboard</Link>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
+      <NavLink to={ROUTES.DASHBOARD}>Dashboard</NavLink>
+      <NavLink to={ROUTES.ACCOUNT}>Account</NavLink>
       <button onClick={auth.signOut}>Sign Out</button>
     </nav>
   </div>
@@ -28,10 +28,10 @@ const HeaderNonAuth = () => (
       <Link to={ROUTES.HOME} data-testid="link-logo">RYO SUBSCRIPTIONS</Link>
     </h1>
     <nav className="nav-primary">
-      <Link to={ROUTES.HOME} data-testid="link-home">Home</Link>
-      <Link to={ROUTES.ABOUT} data-testid="link-about">About</Link>
-      <Link to={ROUTES.SIGN_UP} data-testid="link-signup">Sign Up</Link>
-      <Link to={ROUTES.SIGN_IN} data-testid="link-signin">Sign In</Link>
+      <NavLink to={ROUTES.HOME} data-testid="link-home">Home</NavLink>
+      <NavLink to={ROUTES.ABOUT} data-testid="link-about">About</NavLink>
+      <NavLink to={ROUTES.SIGN_UP} data-testid="link-signup">Sign Up</NavLink>
+      <NavLink to={ROUTES.SIGN_IN} data-testid="link-signin">Sign In</NavLink>
     </nav>
   </div>
 );
