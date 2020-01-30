@@ -5,7 +5,6 @@ const Admin = ({ authUser, dbUser }) => {
   return (
     <div data-testid="route-admin">
       <h2>Admin</h2>
-      <p></p>
     </div>
   )
 }
