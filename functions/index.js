@@ -1,8 +1,137 @@
-const functions = require('firebase-functions');
+'use strict';
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp();
+const stripe = require('stripe')(functions.config().stripe.token);
+const endpointSecret = functions.config().stripe.endpoint_secret;
+const currency = functions.config().stripe.currency || 'USD';
+
+// [START events]
+// receive and process Stripe Hooks
+exports.events = functions.https.onRequest((request, response) => {
+  const signature = request.headers["stripe-signature"];
+  try {
+    let event = stripe.webhooks.constructEvent(request.rawBody, signature, endpointSecret);
+    return admin.firestore().collection('events').add(event)
+      .then((docRef) => {
+        return response.json({ received: true, ref: docRef.id });
+      })
+      .catch((error) => {
+        return response.status(500).end();
+      });
+  }
+  catch (error) {
+    return response.status(400).end();
+  }
+});
+// [END events]
+
+// [START createStripePlan]
+// create a Stripe Plan & Product
+exports.createStripePlan = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('failed-precondition', 'The function must be called while authenticated.');
+  }
+  const user = await getUser(data.uid);
+  const stripePlan = await stripe.plans
+    .create({
+      amount: data.amount,
+      currency: data.currency,
+      interval: data.interval,
+      product: { name: data.name },
+    })
+    .catch(error => {
+      throw new functions.https.HttpsError('error', error);
+    })
+  return admin.firestore().collection('users').doc(data.uid).collection('plans').doc(stripePlan.id)
+    .set({
+      name: data.name,
+      amount: data.amount,
+      currency: data.currency,
+      interval: data.interval,
+      stripePlanID: stripePlan.id,
+      stripeProductID: stripePlan.product,
+    })
+    .then((docRef) => { return { id: docRef.id } })
+    .catch(error => {
+      throw new functions.https.HttpsError('error', error);
+    });
+});
+// [END createStripePlan]
+
+// [START editStripePlan]
+// edit a Plan & Product
+exports.editStripePlan = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('failed-precondition', 'The function must be called while authenticated.');
+  }
+  const user = await getUser(data.uid);
+  const stripePlan = await stripe.plans
+    .update({
+      amount: data.amount,
+      product: { name: data.name },
+    })
+    .catch(error => {
+      throw new functions.https.HttpsError('error', error);
+    })
+  return admin.firestore().collection('users').doc(data.uid).collection('plans').doc(stripePlan.id)
+    .set({
+      name: data.name,
+      amount: data.amount,
+      currency: data.currency,
+      interval: data.interval,
+      stripePlanID: stripePlan.id,
+      stripeProductID: stripePlan.product,
+    })
+    .then((docRef) => { return { id: docRef.id } })
+    .catch(error => {
+      throw new functions.https.HttpsError('error', error);
+    });
+});
+// [END editStripePlan]
+
+// [START deleteStripePlan]
+// create a Stripe Plan & Product
+exports.deleteStripePlan = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError('failed-precondition', 'The function must be called while authenticated.');
+  }
+  const user = await getUser(data.uid);
+  // delete the plan
+  const stripePlan = await stripe.plans
+    .del(data.planID, { stripeAccount: user.stripeConnectAccountID })
+    .catch(error => {
+      console.log(error);
+      throw new functions.https.HttpsError('error', error);
+    })
+  // delete the associated product
+  await stripe.products
+    .del(data.productID, { stripeAccount: user.stripeConnectAccountID })
+    .catch(error => {
+      console.log(error);
+      throw new functions.https.HttpsError('error', error);
+    })
+  return admin.firestore().collection('users').doc(data.uid).collection('plans').doc(stripePlan.id)
+    .delete()
+    .catch(error => {
+      throw new functions.https.HttpsError('error', error);
+    });
+});
+// [END deleteStripePlan]
+
+// [START Utilities]
+// get user
+function getUser(uid) {
+  return admin.firestore().collection('users').doc(uid)
+    .get()
+    .then(doc => {
+      return doc.data();
+    })
+    .catch(error => logError(error, uid, "functions.getUser"))
+}
+
+function logError(error, context, note) {
+  admin.firestore().collection('errors').add({ error: error, context: context, note: note })
+}
+// [END Utilities]
