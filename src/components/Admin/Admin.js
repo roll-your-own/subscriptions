@@ -12,7 +12,7 @@ const Admin = ({ authUser, dbUser }) => {
       <div className="admin-controls">
         <nav className="nav-admin">
           <NavLink exact to={ROUTES.ADMIN} data-testid="link-admin-home">Home</NavLink>
-          <NavLink to={ROUTES.PLANS} data-testid="link-admin-plans">Plans</NavLink>
+          <NavLink to={ROUTES.PLANS} data-testid="link-plans">Plans</NavLink>
         </nav>
         <div className="admin-controls-main">
           <Switch>

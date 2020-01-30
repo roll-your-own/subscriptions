@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 import { functions } from '../../firebase';
 import { ROUTES, PLAN_INTERVALS } from '../../constants';
@@ -14,16 +15,22 @@ export const NewPlan = ({ dbUser }) => {
   const [currency, setCurrency] = useState("USD");
   const [intervalCount, setIntervalCount] = useState("1");
   const [interval, setInterval] = useState("month");
+  const [startDate, setStartDate] = useState("");
   
   const onSubmit = e => {
     e.preventDefault();
     if (name === "") {
-      setMessage("Product Name can't be blank.")
+      setMessage({ type: "error", message: "Product Name can't be blank."})
+    } else if (amount === "") {
+      setMessage({ type: "error", message: "Amount can't be blank."})
+    } else if (startDate === "") {
+      setMessage({ type: "error", message: "Start Date can't be blank."})
     } else {
       setLoading(true);
       setMessage(null);
-      const convAmount = currencyToCents(amount);
-      functions.createPlan(name, convAmount, currency, intervalCount, interval)
+      const convertedAmount = currencyToCents(amount);
+      const unixStartDate = moment(startDate).format('X');
+      functions.createPlan(name, convertedAmount, currency, intervalCount, interval, unixStartDate)
         .then(response => history.push(ROUTES.PLANS))
         .catch(error => {
           setMessage({ type: "error", message: "Something went wrong. Please try again." });
@@ -37,7 +44,7 @@ export const NewPlan = ({ dbUser }) => {
   }
   
   return (
-    <div className="newproduct">
+    <div className="newproduct" data-testid="route-new-plan">
       <h3>Create a Subscription Plan</h3>
       {message && <Message type={message.type} message={message.message} />}
       <form onSubmit={onSubmit} autoComplete="off">
@@ -90,6 +97,14 @@ export const NewPlan = ({ dbUser }) => {
               })}
             </select>
           </div>
+        </div>
+        <div className="field">
+          <label htmlFor="startDate">Start Date</label>
+          <input
+            type="date"
+            name="startDate"
+            id="startDate"
+            onChange={e => setStartDate(e.currentTarget.value)} />
         </div>
         <div className="field">
           <button type='submit' className="btn" disabled={loading}>Create Subscription Plan</button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent, wait, cleanup } from '@testing-library/react';
 import { MemoryRouter as Router} from 'react-router-dom';
 import Admin from './Admin';
 import { AuthUserContext } from '../Session';
@@ -32,7 +32,4 @@ test('it navigates to the sub pages when user clicks the links', () => {
   
   fireEvent.click(queryByTestId('link-admin-home'))
   expect(queryByTestId('route-admin-home')).toBeTruthy();
-  
-  fireEvent.click(queryByTestId('link-admin-plans'))
-  expect(queryByTestId('route-admin-plans')).toBeTruthy();
 })

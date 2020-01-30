@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const stringToHash = (string) => {
   let hash = 0;
   let char = '';
@@ -29,4 +31,8 @@ export const intervalLang = (n) => {
     : n === 2
     ? "twice"
     : `${n} times`
+}
+
+export const nextBillingDate = (start_date, intervalCount, interval) => {
+  
 }

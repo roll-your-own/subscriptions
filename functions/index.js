@@ -7,6 +7,7 @@ const stripe = require('stripe')(functions.config().stripe.token);
 const endpointSecret = functions.config().stripe.endpoint_secret;
 const currency = functions.config().stripe.currency || 'USD';
 
+
 // [START events]
 // receive and process Stripe Hooks
 exports.events = functions.https.onRequest((request, response) => {
@@ -36,6 +37,9 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
       interval_count: data.intervalCount,
       interval: data.interval,
       product: { name: data.name },
+      metadata: {
+        start_date: data.startDate,
+      }
     })
     .catch(error => {
       console.log(error);
@@ -47,6 +51,7 @@ exports.createStripePlan = functions.https.onCall(async (data, context) => {
       currency: data.currency,
       intervalCount: data.intervalCount,
       interval: data.interval,
+      startDate: data.startDate,
       stripePlanID: stripePlan.id,
       stripeProductID: stripePlan.product,
     })

@@ -14,7 +14,7 @@ export const Plans = ({ dbUser }) => {
     return <Loader />
   }
   return (
-    <div className="plans">
+    <div className="plans" data-testid="route-plans">
       {message && <Message type={message.type} message={message.message} />}
       <header className="header-tools">
         <h3>Plans</h3>

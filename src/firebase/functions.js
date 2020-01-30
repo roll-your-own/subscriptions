@@ -1,8 +1,8 @@
 import { functions } from './firebase';
 
-export const createPlan = (name, amount, currency, intervalCount, interval) => {
+export const createPlan = (name, amount, currency, intervalCount, interval, startDate) => {
   let createStripePlan = functions.httpsCallable('createStripePlan');
-  return createStripePlan({ name, amount, currency, intervalCount, interval })
+  return createStripePlan({ name, amount, currency, intervalCount, interval, startDate })
 }
 
 export const editPlan = (name) => {
