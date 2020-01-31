@@ -7,7 +7,7 @@ import { Plans, Plan, NewPlan } from "../Plans";
 
 const Admin = ({ authUser, dbUser }) => {
   return (
-    <div className="route-admin container" data-testid="route-admin">
+    <div className="route-admin" data-testid="route-admin">
       <h2>Admin</h2>
       <div className="admin-controls">
         <nav className="nav-admin">
