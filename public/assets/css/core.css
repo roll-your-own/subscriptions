@@ -151,7 +151,8 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 input[type="date"],
-select {
+select,
+.input-elements {
   width: 100%;
   padding: 1rem 0;
   background: #fff;
@@ -185,7 +186,8 @@ select:after {
 input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover,
-input[type="number"]:hover {
+input[type="number"]:hover,
+.input-elements:hover {
   border-bottom: 2px solid #a7a7a7;
 }
 /* focus */
