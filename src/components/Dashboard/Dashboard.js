@@ -1,7 +1,5 @@
 import React from "react";
 import { withPermission } from "../Session";
-import { Loader, Message } from "../UI";
-import { centsToCurrency } from "../../utils";
 
 const Dashboard = ({ dbUser }) => {
   return (

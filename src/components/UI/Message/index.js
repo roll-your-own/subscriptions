@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const Message = ({ type, message, children }) => {
   return (
@@ -6,5 +6,5 @@ export const Message = ({ type, message, children }) => {
       <p>{message}</p>
       {children}
     </div>
-  )
-}
+  );
+};

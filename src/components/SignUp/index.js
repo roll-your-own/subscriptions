@@ -1,2 +1,2 @@
-import { SignUp } from './SignUp';
-export { SignUp }
+import { SignUp } from "./SignUp";
+export { SignUp };
