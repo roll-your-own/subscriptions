@@ -25,14 +25,26 @@ export const processAmountInput = (amount) => {
   return newAmount;
 }
 
-export const intervalLang = (n) => {
-  return n === "1"
-    ? "once"
-    : n === 2
-    ? "twice"
-    : `${n} times`
+export const pluralizeInterval = (interval, n) => {
+   const morpheme = (n > 1) ? "s" : "";
+   return interval+morpheme;
 }
 
-export const nextBillingDate = (start_date, intervalCount, interval) => {
-  
+export const nextBillingDate = (startDate, intervalCount, interval) => {
+  let now = moment();
+  let billingDate;
+  if ( moment.unix(startDate).isSame(moment(), 'day') ) {
+    // start date is today
+    billingDate = "today";
+  } else if ( moment.unix(startDate).isAfter(moment()) ) {
+    // start date > today
+    billingDate = moment.unix(startDate).format('MMMM Do, YYYY');
+  } else {
+    let nextDate = moment.unix(startDate);
+    while ( nextDate.isBefore(moment().startOf('day')) ) {
+      nextDate = nextDate.add(intervalCount, interval);
+    }
+    billingDate = nextDate.format('MMMM Do, YYYY');
+  }
+  return billingDate
 }
