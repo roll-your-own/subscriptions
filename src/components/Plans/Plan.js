@@ -21,6 +21,7 @@ export const Plan = ({ dbUser }) => {
       <p>Today: {moment().format('MMMM Do, YYYY')}</p>
       <p>Start Date: {moment.unix(plan.startDate).format('MMMM Do, YYYY')}</p>
       <p>Next billing date: {nextBillingDate(plan.startDate, plan.intervalCount, plan.interval)}</p>
+      <p></p>
       <p className="hr-text text-error"><span>Danger Area</span></p>
       <DeletePlanBtn planID={plan.stripePlanID} productID={plan.stripeProductID} />
     </div>

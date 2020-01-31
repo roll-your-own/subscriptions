@@ -41,6 +41,8 @@
 ------------------------------------ */
 .plans-plan { cursor: pointer; padding: 0 10px; transition: all 0.2s ease; }
 .plans-plan:hover { background: #f3f3f3; }
+.plan-cards { display: flex; flex-wrap: wrap; justify-content: center; }
+.plan-card { text-align: center; width: 33.333333%; padding: 1rem 20px; }
 
 /* Message
 ------------------------------------ */

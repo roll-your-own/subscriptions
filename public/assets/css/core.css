@@ -46,17 +46,15 @@ nav ol, nav ul { list-style-type: none; margin-left: 0; }
 ------------------------------------ */
 
 button { border: none; outline: none; background: transparent; }
-button.btn { padding: 12px 20px; color: #444; background: #fff; border-radius: 3px; border: 2px solid #444; font-weight: 600; transition: all 0.2s ease; }
-button.btn:hover { color: #fff; background: #444;  }
-button.btn:disabled {
+.btn { padding: 12px 20px; color: #444; background: #fff; border-radius: 3px; border: 2px solid #444; font-weight: 600; transition: all 0.2s ease; }
+.btn:hover { color: #fff; background: #444;  }
+.btn:disabled {
   background: #ccc;
   border-color: #ccc;
   color: #fff;
   cursor: wait;
 }
-
-button.btn.btn-small { padding: 6px 10px; }
-
+.btn.btn-small { padding: 6px 10px; }
 .btn.btn-alert {
   border-color: #d86a6a;
   color: #d86a6a;

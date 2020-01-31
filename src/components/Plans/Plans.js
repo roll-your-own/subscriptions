@@ -8,7 +8,7 @@ import { Loader, Message } from '../UI';
 import { centsToCurrency } from '../../utils';
 
 export const Plans = ({ dbUser }) => {
-  const { loading, message, plans } = usePlans(dbUser.uid);
+  const { loading, message, plans } = usePlans();
   
   if (loading) {
     return <Loader />
