@@ -1,85 +1,124 @@
 /* App
 ------------------------------------ */
-.app { max-width: 1920px; margin: 0 auto; }
-.container { max-width: 1024px; margin: 0 auto; }
+.app {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
 
 /* Header
 ------------------------------------ */
-.header { font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #ccc; }
+.header {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+}
 .header a,
-.header button { display: block; padding: 1rem 20px; }
-.logo { font-size: 1rem; padding: 0; letter-spacing: 0.1rem; }
-.logo a { color: #444; }
-.logo a:hover { color: #868686; }
-.nav-primary { display: flex; justify-content: space-between; }
+.header button {
+  display: block;
+  padding: 1rem 20px;
+}
+.logo {
+  font-size: 1rem;
+  padding: 0;
+  letter-spacing: 0.1rem;
+}
+.logo a {
+  color: #444;
+}
+.logo a:hover {
+  color: #868686;
+}
+.nav-primary {
+  display: flex;
+  justify-content: space-between;
+}
 @media (min-width: 550px) {
-  .header { display: flex; justify-content: space-between; }
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* Account
 ------------------------------------ */
-.ui-account { max-width: 600px; margin: 0 auto; }
-.ui-account .ui-account-header { text-align: center; }
-.ui-account .ui-account-avatar { padding-bottom: 0; }
-.ui-account .ui-account-display-name { padding-bottom: 0; }
-.ui-account .ui-account-email { padding-top: 0; }
+.account {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.account .account-header {
+  text-align: center;
+}
+.account .account-avatar {
+  padding-bottom: 0;
+}
+.account .account-display-name {
+  padding-bottom: 0;
+}
+.account .account-email {
+  padding-top: 0;
+}
 
 /* Admin
 ------------------------------------ */
-.admin-controls { display: flex; }
+.admin-controls {
+  display: flex;
+}
 .nav-admin {
   display: flex;
   flex-direction: column;
   width: 25%;
   padding: 0.5rem 0;
 }
-.nav-admin a { display: block; padding: 0.5rem 20px; }
-.admin-controls-main { width: 75%; }
-.header-tools { display: flex; justify-content: space-between; }
+.nav-admin a {
+  display: block;
+  padding: 0.5rem 20px;
+}
+.admin-controls-main {
+  width: 75%;
+}
+.header-tools {
+  display: flex;
+  justify-content: space-between;
+}
 
 /* Plans
 ------------------------------------ */
-.plans-plan { cursor: pointer; padding: 0 10px; transition: all 0.2s ease; }
-.plans-plan:hover { background: #f3f3f3; }
-.plan-cards { display: flex; flex-wrap: wrap; justify-content: center; }
-.plan-card { text-align: center; width: 33.333333%; padding: 1rem 20px; }
-
-/* Message
------------------------------------- */
-.message.message-error { color: #da6868; }
-
-/* Loader
------------------------------------- */
-.loader {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.plans-plan {
+  cursor: pointer;
+  padding: 0 10px;
+  transition: all 0.2s ease;
 }
-.loader .loader-message { margin-bottom: 1rem; max-width: 600px; text-align: center; }
-.loader .loader-icon {
+.plans-plan:hover {
+  background: #f3f3f3;
+}
+.plan-cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
+}
+.plan-card {
   text-align: center;
-  font-size: 48px;
-  color: #444;
-  animation: spin 1s ease infinite;
+  width: 33.333333%;
+  padding: 1rem 20px;
 }
-@keyframes spin { 100% { transform:rotate(360deg); } }
+
+/* UI
+===================================== */
 
 /* Avatar
 ------------------------------------ */
-.avatar-wrapper { display: flex; align-items: center; justify-content: center; }
-.avatar-wrapper.avatar-inline { padding-right: 0; }
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-wrapper.avatar-inline {
+  padding-right: 0;
+}
 .avatar {
   border-radius: 100%;
   max-width: 50px;
@@ -106,7 +145,9 @@
 }
 
 @media screen and (min-width: 600px) {
-  .avatar { max-width: 100px; }
+  .avatar {
+    max-width: 100px;
+  }
   .avatar-small .avatar,
   .avatar-small .avatar-text {
     width: 50px;
@@ -135,6 +176,52 @@
   padding: 1rem 20px;
 }
 
+/* Loader
+------------------------------------ */
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader.loader-inline {
+  position: relative;
+  padding: 2rem;
+}
+.loader .loader-message {
+  margin-bottom: 1rem;
+  max-width: 600px;
+  text-align: center;
+}
+.loader .loader-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  font-size: 48px;
+  color: #444;
+  animation: spin 1s ease infinite;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Message
+------------------------------------ */
+.message.message-error {
+  color: #da6868;
+}
+
 /* Modal
 ------------------------------------ */
 .ui-modal {
@@ -148,14 +235,37 @@
   justify-content: center;
   align-items: center;
 }
-.ui-modal.open { display: flex; }
-.ui-modal-inner { max-width: 550px; border: 1px solid #ccc; border-radius: 3px;  padding: 1rem 20px; }
+.ui-modal.open {
+  display: flex;
+}
+.ui-modal-inner {
+  max-width: 550px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1rem 20px;
+}
 
 /* Table
 ------------------------------------ */
-.table { border-top: 1px solid #ccc; margin: 1rem 20px; }
-.table .table-item { border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center; }
-.table .table-item span { padding: 1rem 20px; }
-.table .table-item span:first-child { padding-left: 0; }
-.table .table-item span:last-child { padding-right: 0; }
-.table .table-item-header { font-weight: 700; }
+.table {
+  border-top: 1px solid #ccc;
+  margin: 1rem 20px;
+}
+.table .table-item {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table .table-item span {
+  padding: 1rem 20px;
+}
+.table .table-item span:first-child {
+  padding-left: 0;
+}
+.table .table-item span:last-child {
+  padding-right: 0;
+}
+.table .table-item-header {
+  font-weight: 700;
+}
