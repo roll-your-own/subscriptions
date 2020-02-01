@@ -23,10 +23,6 @@ body {
 .hero-description-highlight {
   background: #f7d85f78;
 }
-.form-card {
-  background: #fff;
-  padding: 1rem 20px;
-}
 .faux-pricing {
   display: flex;
   justify-content: center;

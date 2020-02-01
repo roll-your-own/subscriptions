@@ -7,6 +7,7 @@ export const ROUTES = {
   ACCOUNT: "/account",
   DASHBOARD: "/dashboard",
   PAYMENT_METHODS: "/dashboard/payment-methods",
+  NEW_PAYMENT_METHOD: "/dashboard/payment-methods/new",
   ADMIN: "/admin",
   PLANS: "/admin/plans",
   PLAN: "/admin/plans/:id",

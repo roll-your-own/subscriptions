@@ -3,7 +3,7 @@ import { NavLink, Switch, Route } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import { withPermission } from "../Session";
 import { DashboardHome } from "./DashboardHome";
-import { PaymentMethods } from "../PaymentMethods";
+import { PaymentMethods, NewPaymentMethod } from "../PaymentMethods";
 
 const Dashboard = ({ dbUser }) => {
   return (
@@ -26,6 +26,13 @@ const Dashboard = ({ dbUser }) => {
                 exact
                 path={ROUTES.PAYMENT_METHODS}
                 render={props => <PaymentMethods {...props} dbUser={dbUser} />}
+              />
+              <Route
+                exact
+                path={ROUTES.NEW_PAYMENT_METHOD}
+                render={props => (
+                  <NewPaymentMethod {...props} dbUser={dbUser} />
+                )}
               />
             </Switch>
           </div>
