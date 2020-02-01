@@ -62,27 +62,27 @@
   padding-top: 0;
 }
 
-/* Admin
+/* Controls
 ------------------------------------ */
-.admin-controls {
+.header-tools {
+  display: flex;
+  justify-content: space-between;
+}
+.controls {
   display: flex;
 }
-.nav-admin {
+.controls-nav {
   display: flex;
   flex-direction: column;
   width: 25%;
   padding: 0.5rem 0;
 }
-.nav-admin a {
+.controls-nav a {
   display: block;
   padding: 0.5rem 20px;
 }
-.admin-controls-main {
+.controls-main {
   width: 75%;
-}
-.header-tools {
-  display: flex;
-  justify-content: space-between;
 }
 
 /* Plans

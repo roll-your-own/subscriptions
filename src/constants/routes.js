@@ -4,12 +4,13 @@ export const ROUTES = {
   SIGN_UP: "/signup",
   SIGN_IN: "/signin",
   FORGOT_PASSWORD: "/forgotpassword",
-  NO_MATCH: "*",
-  DASHBOARD: "/dashboard",
   ACCOUNT: "/account",
+  DASHBOARD: "/dashboard",
+  PAYMENT_METHODS: "/dashboard/payment-methods",
   ADMIN: "/admin",
   PLANS: "/admin/plans",
   PLAN: "/admin/plans/:id",
   NEW_PLAN: "/admin/plans/new",
-  NOT_ALLOWED: "/notallowed"
+  NOT_ALLOWED: "/notallowed",
+  NO_MATCH: "*"
 };

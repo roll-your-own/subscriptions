@@ -10,8 +10,8 @@ const Admin = ({ authUser, dbUser }) => {
     <div className="route-admin" data-testid="route-admin">
       <div className="container">
         <h2>Admin</h2>
-        <div className="admin-controls">
-          <nav className="nav-admin">
+        <div className="controls">
+          <nav className="controls-nav">
             <NavLink exact to={ROUTES.ADMIN} data-testid="link-admin-home">
               Home
             </NavLink>
@@ -22,7 +22,7 @@ const Admin = ({ authUser, dbUser }) => {
               Subscriptions
             </NavLink>
           </nav>
-          <div className="admin-controls-main">
+          <div className="controls-main">
             <Switch>
               <Route exact path={ROUTES.ADMIN} component={AdminHome} />
               <Route
