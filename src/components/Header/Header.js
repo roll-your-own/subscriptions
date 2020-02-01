@@ -28,21 +28,21 @@ const HeaderNonAuth = () => (
   <div className="header" data-testid="comp-header">
     <div className="container">
       <h1 className="logo" data-testid="logo">
-        <Link to={ROUTES.HOME} data-testid="link-logo">
+        <Link exact to={ROUTES.HOME} data-testid="link-logo">
           RYO SUBSCRIPTIONS
         </Link>
       </h1>
       <nav className="nav-primary">
-        <NavLink to={ROUTES.HOME} data-testid="link-home">
+        <NavLink exact to={ROUTES.HOME} data-testid="link-home">
           Home
         </NavLink>
-        <NavLink to={ROUTES.ABOUT} data-testid="link-about">
+        <NavLink exact to={ROUTES.ABOUT} data-testid="link-about">
           About
         </NavLink>
-        <NavLink to={ROUTES.SIGN_UP} data-testid="link-signup">
+        <NavLink exact to={ROUTES.SIGN_UP} data-testid="link-signup">
           Sign Up
         </NavLink>
-        <NavLink to={ROUTES.SIGN_IN} data-testid="link-signin">
+        <NavLink exact to={ROUTES.SIGN_IN} data-testid="link-signin">
           Sign In
         </NavLink>
       </nav>
