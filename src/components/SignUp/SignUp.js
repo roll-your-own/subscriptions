@@ -46,7 +46,7 @@ export const SignUp = () => {
       <p className="hr-text">
         <span>or</span>
       </p>
-      <p>Sign in with your email and password.</p>
+      <p>Sign up with your email and password.</p>
       {message && <Message type="error" message={message} />}
       <form onSubmit={handleSubmit}>
         <div className="field">

@@ -4,7 +4,9 @@ import { withPermission } from "../Session";
 const Dashboard = () => {
   return (
     <div className="dashboard" data-testid="route-dashboard">
-      <h2>Dashboard</h2>
+      <div className="container">
+        <h2>Dashboard</h2>
+      </div>
     </div>
   );
 };

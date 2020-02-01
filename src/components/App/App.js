@@ -27,24 +27,22 @@ export const App = () => {
     <AuthUserContext.Provider value={{ authUser, dbUser, loading }}>
       <div className="app" data-testid="comp-app">
         <Header />
-        <div className="container">
-          <Switch>
-            <Route exact path={ROUTES.HOME} component={Home} />
-            <Route exact path={ROUTES.ABOUT} component={About} />
-            <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
-            <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
-            <Route
-              exact
-              path={ROUTES.FORGOT_PASSWORD}
-              component={ForgotPassword}
-            />
-            <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
-            <Route exact path={ROUTES.ACCOUNT} component={Account} />
-            <Route path={ROUTES.ADMIN} component={Admin} />
-            <Route exact path={ROUTES.NOT_ALLOWED} component={NotAllowed} />
-            <Route path={ROUTES.NO_MATCH} component={NoMatch} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path={ROUTES.HOME} component={Home} />
+          <Route exact path={ROUTES.ABOUT} component={About} />
+          <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
+          <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
+          <Route
+            exact
+            path={ROUTES.FORGOT_PASSWORD}
+            component={ForgotPassword}
+          />
+          <Route exact path={ROUTES.DASHBOARD} component={Dashboard} />
+          <Route exact path={ROUTES.ACCOUNT} component={Account} />
+          <Route path={ROUTES.ADMIN} component={Admin} />
+          <Route exact path={ROUTES.NOT_ALLOWED} component={NotAllowed} />
+          <Route path={ROUTES.NO_MATCH} component={NoMatch} />
+        </Switch>
       </div>
     </AuthUserContext.Provider>
   );
