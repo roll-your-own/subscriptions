@@ -13,7 +13,14 @@ const CheckoutForm = ({ elements, stripe }) => {
   const onSubmit = e => {
     e.preventDefault();
     setLoading(true);
-    if (cardName !== "") {
+    const card = elements.getElement("card");
+    if (cardName === "") {
+      setMessage({ type: "error", message: "Name On Card can't be blank" });
+      setLoading(false);
+    } else if (card._invalid) {
+      setMessage({ type: "error", message: "Card details are invalid." });
+      setLoading(false);
+    } else {
       stripe
         .createSource({
           type: "card",
@@ -35,8 +42,6 @@ const CheckoutForm = ({ elements, stripe }) => {
           setMessage({ type: "error", message: error.message });
           setLoading(false);
         });
-    } else {
-      setMessage({ type: "error", message: "Name On Card can't be blank" });
     }
   };
 
