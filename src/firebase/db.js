@@ -57,13 +57,11 @@ export const initConnect = (uid, stateKey) =>
   });
 
 export const concludeConnect = (uid, code) =>
-  db
-    .collection("stripe_connects")
-    .add({
-      uid: uid,
-      stripeConnectAuthCode: code,
-      created_at: moment().format()
-    });
+  db.collection("stripe_connects").add({
+    uid: uid,
+    stripeConnectAuthCode: code,
+    created_at: moment().format()
+  });
 
 // Plans API
 // ----------------------------------

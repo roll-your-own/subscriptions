@@ -33,6 +33,72 @@ exports.events = functions.https.onRequest((request, response) => {
 });
 // [END events]
 
+// [START createStripeCustomer]
+// Create a stripe customer and save the ID to the user record
+exports.createStripeCustomer = functions.firestore
+  .document("users/{documentId}")
+  .onCreate(async (snap, context) => {
+    const val = snap.data();
+    // create stripe customer
+    const response = await stripe.customers
+      .create({
+        email: val.email
+      })
+      .catch(error => {
+        throw new functions.https.HttpsError("error", error);
+      });
+    // add customer id to user record
+    return admin
+      .firestore()
+      .collection("users")
+      .doc(val.uid)
+      .set(
+        {
+          stripeCustomerID: response.id
+        },
+        { merge: true }
+      )
+      .catch(error => {
+        throw new functions.https.HttpsError("error", error);
+      });
+  });
+// [END createStripeCustomer]
+
+// [START createPaymentMethod]
+// Create a payment method and set it to customer
+exports.setUserSource = functions.https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError(
+      "failed-precondition",
+      "The function must be called while authenticated."
+    );
+  }
+  const user = await getUser(data.uid);
+  const stripeUserSource = await stripe.customers
+    .update(user.stripeCustomerID, {
+      source: data.source.id
+    })
+    .catch(error => {
+      console.log(error);
+      throw new functions.https.HttpsError("error", error);
+    });
+  return admin
+    .firestore()
+    .collection("users")
+    .doc(data.uid)
+    .set(
+      {
+        stripeSource: data.source.id
+      },
+      { merge: true }
+    )
+    .catch(error => {
+      console.log(error);
+      throw new functions.https.HttpsError("error", error);
+    });
+});
+// [END setUserSource]
+
 // [START createStripePlan]
 // create a Stripe Plan & Product
 exports.createStripePlan = functions.https.onCall(async (data, context) => {

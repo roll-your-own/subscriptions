@@ -28,3 +28,8 @@ export const deletePlan = (planID, productID) => {
   let deleteStripePlan = functions.httpsCallable("deleteStripePlan");
   return deleteStripePlan({ planID, productID });
 };
+
+export const setUserSource = (uid, source) => {
+  let setUserSource = functions.httpsCallable("setUserSource");
+  return setUserSource({ uid, source });
+};

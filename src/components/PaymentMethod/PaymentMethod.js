@@ -11,7 +11,6 @@ export const PaymentMethod = ({ dbUser }) => {
 
   useEffect(() => {
     if (scriptLoaded) {
-      console.log("loaded", process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
       setStripe(window.Stripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY));
     }
     if (scriptError) {
@@ -27,7 +26,7 @@ export const PaymentMethod = ({ dbUser }) => {
   }
   return (
     <div data-testid="comp-paymentmethod">
-      <h2>Payment Method</h2>
+      <h3>Payment Method</h3>
       {!!scriptError && (
         <Message type={message.type} message={message.message} />
       )}
