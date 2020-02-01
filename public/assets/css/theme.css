@@ -1,6 +1,9 @@
 body {
   background: #f1f1ea;
 }
+.loader.loader-inline {
+  background: transparent;
+}
 .hero {
   display: flex;
   justify-content: space-between;

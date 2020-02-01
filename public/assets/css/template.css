@@ -194,6 +194,7 @@
 .loader.loader-inline {
   position: relative;
   padding: 2rem;
+  background: transparent;
 }
 .loader .loader-message {
   margin-bottom: 1rem;

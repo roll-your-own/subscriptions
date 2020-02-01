@@ -110,7 +110,7 @@ button {
 .btn {
   padding: 12px 20px;
   color: #444;
-  background: #fff;
+  background: transparent;
   border-radius: 3px;
   border: 2px solid #444;
   font-weight: 600;
@@ -155,8 +155,8 @@ select,
 .input-elements {
   width: 100%;
   padding: 1rem 0;
-  background: #fff;
-  border: 1px solid #fff;
+  background: transparent;
+  border: 0px solid #fff;
   border-bottom: 2px solid #ccc;
   border-radius: 0;
   font-size: 1rem;

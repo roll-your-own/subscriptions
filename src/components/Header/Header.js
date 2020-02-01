@@ -9,7 +9,7 @@ const HeaderAuth = ({ dbUser }) => (
     <div className="container">
       <h1 className="logo" data-testid="logo">
         <Link to={ROUTES.DASHBOARD} data-testid="link-logo">
-          RYO SUBSCRIPTIONS
+          RYO SUB
         </Link>
       </h1>
       <nav className="nav-primary">
@@ -29,7 +29,7 @@ const HeaderNonAuth = () => (
     <div className="container">
       <h1 className="logo" data-testid="logo">
         <Link to={ROUTES.HOME} data-testid="link-logo">
-          RYO SUBSCRIPTIONS
+          RYO SUB
         </Link>
       </h1>
       <nav className="nav-primary">
