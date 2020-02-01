@@ -4,7 +4,7 @@ import { Loader, Message } from "../UI";
 import { StripeProvider, Elements } from "react-stripe-elements";
 import PaymentMethodForm from "./PaymentMethodForm";
 
-export const PaymentMethod = ({ dbUser }) => {
+export const NewPaymentMethod = ({ dbUser }) => {
   const [scriptLoaded, scriptError] = useScript("https://js.stripe.com/v3/");
   const [stripe, setStripe] = useState(null);
   const [message, setMessage] = useState(null);

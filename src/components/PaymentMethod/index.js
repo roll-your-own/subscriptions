@@ -1,2 +1,2 @@
-import { PaymentMethod } from "./PaymentMethod";
-export { PaymentMethod };
+import { NewPaymentMethod } from "./NewPaymentMethod";
+export { NewPaymentMethod };
