@@ -1,4 +1,5 @@
 import React from "react";
+import { TypedText } from "../UI";
 
 export const Home = () => {
   return (
@@ -29,7 +30,9 @@ export const Home = () => {
                   <li>Features, features, features!</li>
                 </ul>
                 <p>
-                  <button className="faux-pricing-item-btn">Get Started</button>
+                  <button className="faux-pricing-item-btn" disabled={true}>
+                    Get Started
+                  </button>
                 </p>
               </div>
               <div className="faux-pricing-item">
@@ -37,7 +40,10 @@ export const Home = () => {
                   <h2 className="faux-pricing-item-title">Pro</h2>
                   <h3 className="faux-pricing-item-price">$10 / month</h3>
                   <p className="faux-pricing-item-description">
-                    Shakers, bakers, money makers.
+                    <TypedText
+                      initialText="A good choice."
+                      finalText="Perfect for shakers, bakers, and money makers."
+                    />
                   </p>
                 </div>
                 <ul className="faux-pricing-item-features">
@@ -48,7 +54,9 @@ export const Home = () => {
                   <li>Features, features, features!</li>
                 </ul>
                 <p>
-                  <button className="faux-pricing-item-btn">Get Started</button>
+                  <button className="faux-pricing-item-btn" disabled={true}>
+                    Get Started
+                  </button>
                 </p>
               </div>
               <div className="faux-pricing-item">
@@ -65,7 +73,7 @@ export const Home = () => {
                   <li>Features, features, features!</li>
                 </ul>
                 <p>
-                  <button className="faux-pricing-item-btn" disabled="true">
+                  <button className="faux-pricing-item-btn" disabled={true}>
                     Get Started
                   </button>
                 </p>
@@ -76,7 +84,7 @@ export const Home = () => {
       </div>
       <div className="section section-bg-white">
         <div className="container">
-          <h2 class="text-center">
+          <h2 className="text-center">
             With our easy to follow instructions you'll be up and running fast.
           </h2>
         </div>

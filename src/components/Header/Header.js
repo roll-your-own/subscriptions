@@ -28,7 +28,7 @@ const HeaderNonAuth = () => (
   <div className="header" data-testid="comp-header">
     <div className="container">
       <h1 className="logo" data-testid="logo">
-        <Link exact to={ROUTES.HOME} data-testid="link-logo">
+        <Link to={ROUTES.HOME} data-testid="link-logo">
           RYO SUBSCRIPTIONS
         </Link>
       </h1>

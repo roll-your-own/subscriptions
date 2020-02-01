@@ -30,6 +30,7 @@ body {
   align-items: center;
 }
 .faux-pricing-item {
+  width: 200px;
   border-radius: 12px;
   background: #fff;
   font-size: 0.8rem;
@@ -57,7 +58,8 @@ body {
   border-top-right-radius: 12px;
   border-bottom: 0;
 }
-.faux-pricing-item-title {
+.faux-pricing-item:nth-child(2) .faux-pricing-item-description {
+  height: 58px;
 }
 .faux-pricing-item-price {
   padding-top: 0;
