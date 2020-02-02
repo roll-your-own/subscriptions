@@ -33,10 +33,7 @@ export const PaymentMethods = ({ dbUser }) => {
       {!paymentMethods.length ? (
         <p>
           You haven't added any payment methods yet.{" "}
-          <Link to={ROUTES.NEW_PAYMENT_METHOD}>
-            Add your first Payment Method
-          </Link>
-          .
+          <Link to={ROUTES.NEW_PAYMENT_METHOD}>Add your Payment Method</Link>.
         </p>
       ) : (
         <div className="table">

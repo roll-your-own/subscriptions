@@ -1,6 +1,9 @@
 body {
   background: #f1f1ea;
 }
+.loader {
+  background: #f1f1ea;
+}
 .loader.loader-inline {
   background: transparent;
 }
