@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./TypedText.css";
 
-export const TypedText = ({ initialText, finalText }) => {
+export const TypedText = ({ initialText, finalText, onFinish }) => {
   const [playState, setPlayState] = useState("REST_START");
   const [text, setText] = useState(initialText);
 
@@ -39,8 +39,6 @@ export const TypedText = ({ initialText, finalText }) => {
               .slice(0, text.length + 1)
               .join("");
             setText(newText);
-          } else {
-            break;
           }
           break;
         default:
