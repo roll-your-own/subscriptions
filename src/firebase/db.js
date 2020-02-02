@@ -68,3 +68,11 @@ export const concludeConnect = (uid, code) =>
 export const plans = () => db.collection("plans");
 
 export const plan = id => db.collection("plans").doc(id);
+
+// Payment Methods API
+// ----------------------------------
+export const userPaymentMethods = uid =>
+  db
+    .collection("users")
+    .doc(uid)
+    .collection("paymentMethods");

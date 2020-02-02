@@ -86,14 +86,10 @@ exports.setUserSource = functions.https.onCall(async (data, context) => {
     .firestore()
     .collection("users")
     .doc(data.uid)
-    .set(
-      {
-        stripeSource: data.source.id
-      },
-      { merge: true }
-    )
+    .collection("paymentMethods")
+    .doc(data.source.id)
+    .set({ ...data.source })
     .catch(error => {
-      console.log(error);
       throw new functions.https.HttpsError("error", error);
     });
 });
