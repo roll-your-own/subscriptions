@@ -87,14 +87,6 @@
 
 /* Plans
 ------------------------------------ */
-.plans-plan {
-  cursor: pointer;
-  padding: 0 10px;
-  transition: all 0.2s ease;
-}
-.plans-plan:hover {
-  background: #f3f3f3;
-}
 .plan-cards {
   display: flex;
   flex-wrap: wrap;
@@ -258,6 +250,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.table-item-link {
+  cursor: pointer;
+  padding: 0 10px;
+  transition: all 0.2s ease;
+}
+.table-item-link:hover {
+  background: #f3f3f3;
 }
 .table .table-item span {
   padding: 1rem 20px;

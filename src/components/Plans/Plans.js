@@ -21,7 +21,10 @@ export const Plans = ({ dbUser }) => {
         <p>
           <Link to={ROUTES.NEW_PLAN}>
             <button className="btn btn-small">
-              <FontAwesomeIcon icon={faPlus} style={{ marginRight: "10px" }} />{" "}
+              <FontAwesomeIcon
+                icon={faPlus}
+                style={{ fontSize: "0.7rem", marginRight: "10px" }}
+              />{" "}
               New Plan
             </button>
           </Link>
@@ -38,7 +41,7 @@ export const Plans = ({ dbUser }) => {
             plans.map(plan => (
               <Link
                 key={plan.id}
-                className="table-item plans-plan"
+                className="table-item table-item-link"
                 to={`${ROUTES.PLANS}/${plan.id}`}
               >
                 <span className="table-item-header">{plan.name}</span>

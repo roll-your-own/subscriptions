@@ -7,6 +7,9 @@ body {
 .loader.loader-inline {
   background: transparent;
 }
+.table-item-link:hover {
+  background: #e4e4dc;
+}
 .hero {
   padding: 1rem 0;
 }

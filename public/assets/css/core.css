@@ -127,7 +127,7 @@ button {
   cursor: wait;
 }
 .btn.btn-small {
-  padding: 6px 10px;
+  padding: 6px 10px 8px 10px;
 }
 .btn.btn-alert {
   border-color: #d86a6a;

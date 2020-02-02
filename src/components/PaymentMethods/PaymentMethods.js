@@ -22,7 +22,7 @@ export const PaymentMethods = ({ dbUser }) => {
               <button className="btn btn-small">
                 <FontAwesomeIcon
                   icon={faPlus}
-                  style={{ marginRight: "10px" }}
+                  style={{ fontSize: "0.7rem", marginRight: "10px" }}
                 />{" "}
                 New Payment Method
               </button>
