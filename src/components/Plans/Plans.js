@@ -5,7 +5,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ROUTES } from "../../constants";
 import { usePlans } from "./hooks";
 import { Loader, Message } from "../UI";
-import { centsToCurrency } from "../../utils";
+import { centsToCurrency, pluralizeInterval } from "../../utils";
 
 export const Plans = ({ dbUser }) => {
   const { loading, message, plans } = usePlans();
@@ -46,8 +46,9 @@ export const Plans = ({ dbUser }) => {
               >
                 <span className="table-item-header">{plan.name}</span>
                 <span>
-                  {centsToCurrency(plan.amount)} {plan.currency} per{" "}
-                  {plan.interval}
+                  {centsToCurrency(plan.amount)} {plan.currency} every{" "}
+                  {plan.intervalCount > 1 ? plan.intervalCount : null}{" "}
+                  {pluralizeInterval(plan.interval, plan.intervalCount)}
                 </span>
               </Link>
             ))}
