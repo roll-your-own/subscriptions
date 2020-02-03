@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import "./Loader.css";
 
 export const Loader = ({ message, inline }) => (
   <div className={`loader ${inline ? "loader-inline" : ""}`}>

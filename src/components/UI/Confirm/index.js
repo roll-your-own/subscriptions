@@ -1,4 +1,5 @@
 import React from "react";
+import "./Confirm.css";
 
 export const Confirm = ({
   confirmTitle,

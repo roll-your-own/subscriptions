@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuthUserContext } from "../Session";
 import { auth } from "../../firebase";
 import { ROUTES } from "../../constants";
+import "./Header.css";
 
 const HeaderAuth = ({ dbUser }) => (
   <div className="header" data-testid="comp-header-auth">

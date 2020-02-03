@@ -1,4 +1,5 @@
 import React from "react";
+import "./Avatar.css";
 
 export const Avatar = ({ user, wrapperClass, size }) => (
   <figure

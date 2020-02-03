@@ -1,4 +1,5 @@
 import React from "react";
+import "./Modal.css";
 
 export const Modal = ({ open, children }) => (
   <div className={`ui-modal ${open ? "open" : ""}`}>

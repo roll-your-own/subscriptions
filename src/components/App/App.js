@@ -16,6 +16,7 @@ import {
   Admin
 } from "../";
 import { Loader } from "../UI";
+import "./App.css";
 
 export const App = () => {
   const { authUser, dbUser, loading } = useAuthState();

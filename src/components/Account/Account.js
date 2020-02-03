@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withPermission } from "../Session";
 import { Avatar } from "../UI";
 import { EditUser } from "./EditUser";
+import "./Account.css";
 
 const Account = ({ authUser, dbUser }) => (
   <div className="account" data-testid="route-account">
