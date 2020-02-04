@@ -108,6 +108,7 @@ button {
   background: transparent;
 }
 .btn {
+  display: inline-block;
   padding: 12px 20px;
   color: #444;
   background: transparent;

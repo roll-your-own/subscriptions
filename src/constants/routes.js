@@ -6,6 +6,8 @@ export const ROUTES = {
   FORGOT_PASSWORD: "/forgotpassword",
   ACCOUNT: "/account",
   DASHBOARD: "/dashboard",
+  SUBSCRIPTIONS: "/dashboard/subscriptions",
+  SUBSCRIBE: "/dashboard/subscribe/:id",
   PAYMENT_METHODS: "/dashboard/payment-methods",
   NEW_PAYMENT_METHOD: "/dashboard/payment-methods/new",
   ADMIN: "/admin",

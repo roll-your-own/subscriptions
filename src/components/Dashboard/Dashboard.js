@@ -4,6 +4,7 @@ import { ROUTES } from "../../constants";
 import { withPermission } from "../Session";
 import { DashboardHome } from "./DashboardHome";
 import { PaymentMethods, NewPaymentMethod } from "../PaymentMethods";
+import { Subscriptions, Subscribe } from "../Subscriptions";
 
 const Dashboard = ({ dbUser }) => {
   return (
@@ -15,6 +16,9 @@ const Dashboard = ({ dbUser }) => {
             <NavLink exact to={ROUTES.DASHBOARD}>
               Home
             </NavLink>
+            <NavLink exact to={ROUTES.SUBSCRIPTIONS}>
+              Subscriptions
+            </NavLink>
             <NavLink exact to={ROUTES.PAYMENT_METHODS}>
               Payment Methods
             </NavLink>
@@ -22,6 +26,16 @@ const Dashboard = ({ dbUser }) => {
           <div className="controls-main">
             <Switch>
               <Route exact path={ROUTES.DASHBOARD} component={DashboardHome} />
+              <Route
+                exact
+                path={ROUTES.SUBSCRIPTIONS}
+                render={props => <Subscriptions {...props} dbUser={dbUser} />}
+              />
+              <Route
+                exact
+                path={ROUTES.SUBSCRIBE}
+                render={props => <Subscribe {...props} dbUser={dbUser} />}
+              />
               <Route
                 exact
                 path={ROUTES.PAYMENT_METHODS}
