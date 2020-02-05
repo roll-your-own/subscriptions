@@ -1,4 +1,4 @@
 import { PaymentMethods } from "./PaymentMethods";
 import { NewPaymentMethod } from "./NewPaymentMethod";
-
-export { PaymentMethods, NewPaymentMethod };
+import { usePaymentMethods } from "./hooks";
+export { PaymentMethods, NewPaymentMethod, usePaymentMethods };

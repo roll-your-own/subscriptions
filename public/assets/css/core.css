@@ -144,9 +144,6 @@ button {
 ::placeholder {
   color: #ccc;
 }
-input {
-  -webkit-appearance: none;
-}
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -154,6 +151,9 @@ input[type="number"],
 input[type="date"],
 select,
 .input-elements {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
   padding: 1rem 0;
   background: transparent;
@@ -163,6 +163,10 @@ select,
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease;
+}
+input[type="radio"] {
+  margin-right: 1rem;
+  cursor: pointer;
 }
 select {
   -webkit-appearance: none;
@@ -206,10 +210,6 @@ input[type="number"]:disabled {
   cursor: not-allowed;
   color: #ccc;
 }
-/* invalid */
-input {
-  -webkit-appearance: none;
-}
 input[type="text"].input-error,
 input[type="email"].input-error,
 input[type="password"].input-error,
@@ -223,6 +223,7 @@ label {
   font-size: 0.9rem;
   font-weight: 600;
   color: #5f5f5f;
+  cursor: pointer;
 }
 label i {
   color: #d86a6a;

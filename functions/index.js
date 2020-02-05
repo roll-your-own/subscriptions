@@ -208,6 +208,41 @@ exports.deleteStripePlan = functions.https.onCall(async (data, context) => {
 });
 // [END deleteStripePlan]
 
+// [START createStripeSubscription]
+// create a Stripe Subscription
+exports.createStripeSubscription = functions.https.onCall(
+  async (data, context) => {
+    if (!context.auth) {
+      throw new functions.https.HttpsError(
+        "failed-precondition",
+        "The function must be called while authenticated."
+      );
+    }
+
+    // create the subscription
+    const stripeSubscription = await stripe.subscriptions
+      .create({
+        customer: data.stripeCustomerID,
+        items: [{ plan: data.stripePlanID }],
+        trial_end: data.startDate
+      })
+      .catch(error => {
+        throw new functions.https.HttpsError("error", error);
+      });
+    return admin
+      .firestore()
+      .collection("users")
+      .doc(data.uid)
+      .collection("subscriptions")
+      .doc(stripeSubscription.id)
+      .set({ ...stripeSubscription }, { merge: true })
+      .catch(error => {
+        throw new functions.https.HttpsError("error", error);
+      });
+  }
+);
+// [END createStripeSubscription]
+
 // [START Utilities]
 // get user
 function getUser(uid) {

@@ -33,3 +33,20 @@ export const setUserSource = (uid, source) => {
   let setUserSource = functions.httpsCallable("setUserSource");
   return setUserSource({ uid, source });
 };
+
+export const createSubscription = (
+  uid,
+  stripeCustomerID,
+  stripePlanID,
+  startDate
+) => {
+  let createStripeSubscription = functions.httpsCallable(
+    "createStripeSubscription"
+  );
+  return createStripeSubscription({
+    uid,
+    stripeCustomerID,
+    stripePlanID,
+    startDate
+  });
+};
