@@ -76,3 +76,7 @@ export const userPaymentMethods = uid =>
     .collection("users")
     .doc(uid)
     .collection("paymentMethods");
+
+// Subscriptions API
+// ----------------------------------
+export const userSubscriptions = uid => user(uid).collection("subscriptions");
